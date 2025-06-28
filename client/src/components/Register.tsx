@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Register() {
   const [name, setName] = useState("");
@@ -44,6 +45,9 @@ export function Register() {
         <button type="submit">Register</button>
       </form>
       {message && <div>{message}</div>}
+      <div>
+        <Link to="/">Go to user list</Link>
+      </div>
     </>
   );
 }

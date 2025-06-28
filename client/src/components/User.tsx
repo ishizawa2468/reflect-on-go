@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type User = {
   id: number;
@@ -40,6 +41,9 @@ export function User() {
             {user.name}
           </label>
         ))}
+      </div>
+      <div>
+        <Link to="/register">Register new user</Link>
       </div>
     </>
   );
