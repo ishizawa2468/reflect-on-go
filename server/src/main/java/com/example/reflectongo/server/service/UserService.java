@@ -7,6 +7,7 @@ import com.example.reflectongo.server.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +18,12 @@ public class UserService {
 
     public Optional<UserResponse> getUserById(Long id) {
         return userRepository.findById(id).map(this::toResponse);
+    }
+
+    public List<UserResponse> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     public UserResponse registerUser(UserRequest userRequest) {
